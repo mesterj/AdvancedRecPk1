@@ -1,5 +1,6 @@
 package joco.com.advancedrecpk1
 
+import android.media.ImageReader
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -10,9 +11,7 @@ import kotlinx.android.synthetic.main.item_layout.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
-class ItemBaseAdapter (val itemList : List<Item>) : RecyclerView.Adapter<ItemBaseAdapter.ItemHolder>(), View.OnClickListener , AnkoLogger{
-
-    val itemClickListener : OnListItemClickMessageListener? = null
+class ItemBaseAdapter (val itemList : List<Item>, val itemClickListener: OnListItemClickMessageListener) : RecyclerView.Adapter<ItemBaseAdapter.ItemHolder>(), View.OnClickListener , AnkoLogger{
 
     override fun onClick(view: View) {
         val rcv = RecyclerViewAdapterUtils.getParentRecyclerView(view)

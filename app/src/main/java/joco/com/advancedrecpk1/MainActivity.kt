@@ -5,7 +5,9 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import joco.com.advancedrecpk1.R.id.message
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,8 +21,16 @@ class MainActivity : AppCompatActivity() {
         listItems.add(Item("4",15,"Black"))
 
 
-        rcvAdvRc1.adapter = ItemBaseAdapter(listItems)
+        val itemClickListener = object : OnListItemClickMessageListener {
+            override fun onItemClicked(message: String) {
+                toast(message)
+            }
+        }
+
+        rcvAdvRc1.adapter = ItemBaseAdapter(listItems,itemClickListener )
         rcvAdvRc1.layoutManager = LinearLayoutManager(this)
+
+
 
 
     }
