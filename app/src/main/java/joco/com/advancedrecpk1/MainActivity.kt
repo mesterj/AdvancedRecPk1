@@ -1,9 +1,9 @@
 package joco.com.advancedrecpk1
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         rcvAdvRc1.adapter = ItemBaseAdapter(listItems)
         rcvAdvRc1.layoutManager = LinearLayoutManager(this)
+
 
     }
 

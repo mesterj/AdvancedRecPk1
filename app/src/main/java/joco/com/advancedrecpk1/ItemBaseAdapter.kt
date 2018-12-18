@@ -7,8 +7,10 @@ import android.view.View
 import com.h6ah4i.android.widget.advrecyclerview.utils.RecyclerViewAdapterUtils
 import com.h6ah4i.android.widget.advrecyclerview.utils.WrapperAdapterUtils
 import kotlinx.android.synthetic.main.item_layout.view.*
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 
-class ItemBaseAdapter (val itemList : List<Item>) : RecyclerView.Adapter<ItemBaseAdapter.ItemHolder>(), View.OnClickListener {
+class ItemBaseAdapter (val itemList : List<Item>) : RecyclerView.Adapter<ItemBaseAdapter.ItemHolder>(), View.OnClickListener , AnkoLogger{
 
     val itemClickListener : OnListItemClickMessageListener? = null
 
@@ -27,7 +29,9 @@ class ItemBaseAdapter (val itemList : List<Item>) : RecyclerView.Adapter<ItemBas
         var message = "Clicked item $localPosition"
 
         if (itemClickListener != null) {
-            itemClickListener.onItemClicked(message)
+           itemClickListener.onItemClicked(message)
+            info { "$message clicked" }
+
         }
     }
 
